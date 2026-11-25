@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鲸云智能｜产品手册样册</title>
+<style>
+:root { color-scheme: light; --ink:#132827; --muted:#4c6260; --accent:#007968; --paper:#fdfefa; --line:#d6e2dc; }
+* { box-sizing:border-box; }
+body { margin:0; background:#e5ebe8; color:var(--ink); font:15px/1.6 "Microsoft YaHei","PingFang SC",sans-serif; }
+a { color:inherit; text-decoration:none; }
+a:hover { text-decoration:underline; }
+button,select { font:inherit; color:inherit; background:white; border:1px solid var(--line); border-radius:5px; min-height:36px; padding:4px 10px; }
+button { cursor:pointer; }
+.toolbar { position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; padding:9px max(14px,calc((100% - 1240px)/2)); background:#fdfefa; border-bottom:1px solid var(--line); }
+.toolbar div { display:flex; align-items:center; flex-wrap:wrap; gap:7px; }
+main { max-width:1250px; margin:auto; padding:20px 10px 48px; }
+.spread { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px; margin:0 auto 18px; }
+.spread.solo { grid-template-columns:minmax(0,1fr); max-width:613px; }
+.page { container-type:inline-size; position:relative; min-width:0; aspect-ratio:210/297; background:var(--paper); overflow:hidden; box-shadow:0 8px 20px #18302919; scroll-margin-top:112px; }
+.leaf { height:100%; padding:6.7cqw 8cqw; display:flex; flex-direction:column; gap:3cqw; }
+.running,.foot { display:flex; justify-content:space-between; gap:8px; color:var(--muted); font-size:2.05cqw; }
+.running { border-bottom:1px solid var(--line); padding-bottom:2cqw; }
+.foot { margin-top:auto; border-top:1px solid var(--line); padding-top:1.5cqw; }
+h1,h2,h3,p { margin:0; }
+h2 { font-size:6.9cqw; line-height:1.2; font-weight:750; }
+h3 { font-size:3.25cqw; line-height:1.4; }
+p,li { font-size:2.65cqw; }
+.kicker { color:var(--accent); font-weight:750; font-size:2.4cqw; }
+.lede { color:var(--muted); max-width:32em; }
+.heading { display:grid; gap:1.5cqw; }
+.cover { background:#211a27 center/cover no-repeat; color:#fff; }
+.cover .leaf { background:linear-gradient(180deg,#171720d9 0%,#17172055 51%,transparent 80%,#171720a0 100%); }
+.cover .running,.cover .foot { color:white; border-color:#ffffff57; }
+.cover .heading { margin-top:13cqw; gap:3cqw; }
+.cover h1 { font-size:12.4cqw; line-height:1.1; max-width:7em; }
+.cover .kicker { color:#a4eed8; }
+.cover p { font-size:3.5cqw; }
+.index { display:grid; gap:1.5cqw; }
+.index a { display:flex; justify-content:space-between; gap:1cqw; border-bottom:1px solid var(--line); padding:1.2cqw 0; font-size:2.45cqw; }
+.contents a { font-size:3.05cqw; }
+.app-index { display:grid; grid-template-columns:1fr 1fr; column-gap:3cqw; }
+.app-index { row-gap:0; }
+.app-index a { font-size:2.25cqw; padding:.8cqw 0; }
+#p02 .leaf { gap:2cqw; }
+.context { display:grid; grid-template-columns:1fr 1fr; gap:3cqw; padding:3cqw; background:#e8f1eb; }
+.context strong { display:block; color:var(--accent); font-size:2.9cqw; }
+.list { display:grid; }
+.row { border-top:1px solid var(--line); display:grid; grid-template-columns:9cqw 1fr; gap:2cqw; padding:2.7cqw 0; }
+.row b { color:var(--accent); font-size:3.1cqw; }
+.row p { color:var(--muted); margin-top:.7cqw; }
+.figure { position:relative; min-height:36cqw; display:grid; place-content:center; text-align:center; gap:1.4cqw; padding:4cqw; background-color:#ebf3ef; background-image:linear-gradient(#245d5410 1px,transparent 1px),linear-gradient(90deg,#245d5410 1px,transparent 1px); background-size:4cqw 4cqw; border:1px solid #c5d9d0; color:#244b44; }
+.figure strong { font-size:4cqw; }
+.figure span { font-size:2.35cqw; }
+.figure.product { min-height:46cqw; }
+.figure.product::before { content:""; width:22cqw; height:13cqw; border:1px solid #639488; margin:auto auto 2cqw; background:linear-gradient(145deg,#b9dbcc 45%,#d8ebe1 45%); box-shadow:2cqw 2cqw 0 #a9cdc3; }
+.figure.product[data-style="1"] { background-color:#e9eff6; border-color:#c9d6e6; }
+.figure.product[data-style="1"]::before { border-color:#597a9d; background:linear-gradient(145deg,#b9cfe3 45%,#d8e6f1 45%); box-shadow:2cqw 2cqw 0 #aac4da; }
+.figure.product[data-style="2"] { background-color:#f3eddf; border-color:#ded0b7; }
+.figure.product[data-style="2"]::before { border-color:#977842; background:linear-gradient(145deg,#d9bc82 45%,#eee0c4 45%); box-shadow:2cqw 2cqw 0 #d6c29a; }
+.stack { display:grid; gap:1.5cqw; padding:2cqw 0; }
+.layer { padding:3.1cqw 3.4cqw; border-left:4px solid var(--accent); background:#e6f0ea; }
+.layer.focus { background:#124c45; color:white; }
+.layer p { margin-top:.55cqw; }
+.flow { display:flex; gap:1cqw; align-items:stretch; }
+.flow span { flex:1; display:grid; place-items:center; background:#e7f0ec; text-align:center; padding:2cqw .8cqw; font-size:2.15cqw; }
+.flow i { align-self:center; font-style:normal; color:var(--accent); }
+.columns { display:grid; grid-template-columns:repeat(3,1fr); gap:2cqw; }
+.columns div { border-top:2px solid var(--accent); padding-top:1.4cqw; }
+.columns p { font-size:2.3cqw; color:var(--muted); }
+.pull { border-left:3px solid var(--accent); padding:1.5cqw 3cqw; background:#e9f2ec; }
+.closing { background:#144741; color:#fff; }
+.closing .leaf { justify-content:center; gap:4cqw; }
+.closing .kicker,.closing .foot { color:#bee5d8; }
+.closing .foot { margin-top:3cqw; border-color:#80ad9f; }
+.qr { width:19cqw; aspect-ratio:1; display:grid; place-items:center; text-align:center; border:1px dashed #b6dbc9; font-size:2.3cqw; }
+@media(max-width:760px) { .spread { grid-template-columns:minmax(0,1fr); max-width:613px; gap:14px; margin-bottom:14px; } }
+:root { --ink:#172947; --muted:#435774; --accent:#0765ea; --paper:#fff; --line:#d4e4f5; }
+body { background:#e8eff8; }
+.toolbar { background:#fff; }
+.leaf { padding:6.4cqw 7.2cqw; }
+.running { color:#075cc9; border-color:#a8cff9; }
+.cover { background:#075fe4 url("cover.jpg") right bottom/auto 77% no-repeat; }
+.cover .leaf { background:linear-gradient(180deg,#075fe4 7%,#075fe4ed 35%,#075fe400 72%); }
+.cover .heading { margin-top:9cqw; }
+.cover h1 { font-size:15cqw; max-width:none; }
+.cover .kicker { color:#9df4ff; }
+.cover p { font-size:5cqw; font-weight:750; }
+.cover .foot { text-shadow:0 1px 4px #003b99; }
+.heading > .kicker { justify-self:start; padding:.8cqw 3cqw .8cqw 1.8cqw; color:#075bc8; background:#dbeeff; clip-path:polygon(0 0,100% 0,94% 100%,0 100%); }
+.cover .heading > .kicker { background:#007b9c; color:white; }
+h2 { color:#0761d8; }
+.cover h1,.closing h2 { color:white; }
+.contents { grid-template-columns:1fr 1fr; gap:.65cqw; background:#0877ef; }
+.contents a { min-height:15cqw; padding:1.5cqw 2cqw; border:0; border-radius:2.5cqw; background:#e3f2ff; color:#055cc7; align-items:center; font-size:2.45cqw; }
+.contents a:nth-child(2),.contents a:nth-child(3) { background:#fff; }
+.contents a b { font-size:5.8cqw; line-height:1; }
+.context,.pull { background:#e5f4ff; }
+.row b { background:#0672ee; color:#fff; justify-self:start; height:5cqw; min-width:5cqw; text-align:center; }
+.figure,.figure.product[data-style] { background-color:#eef7ff; background-image:linear-gradient(#146be817 1px,transparent 1px),linear-gradient(90deg,#146be817 1px,transparent 1px); border-color:#a8cff7; color:#0753ad; }
+.figure.product { display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.figure.product[data-style]::before { width:58cqw; height:25cqw; border:1px solid #86b8ef; border-top:3cqw solid #1478ea; border-radius:1.5cqw; background:repeating-linear-gradient(180deg,#f7fbff 0 2.9cqw,#dbeafa 3cqw 3.3cqw); box-shadow:0 1cqw 3cqw #0061d522; margin:0 auto 1cqw; }
+.figure.product[data-style="1"]::before { background:repeating-linear-gradient(90deg,#f4faff 0 9cqw,#d2e8ff 9cqw 13cqw); }
+.figure.product[data-style="2"]::before { background:linear-gradient(90deg,#cbe5ff 24%,transparent 24%),repeating-linear-gradient(180deg,#f8fcff 0 4cqw,#deedfc 4cqw 5cqw); }
+.layer { background:#e7f4ff; border-color:#07a7ce; }
+.layer.focus { background:#0866e7; }
+.stack .layer + .layer { position:relative; }
+.stack .layer + .layer::before { content:""; height:1.5cqw; width:1px; background:#499aeb; position:absolute; bottom:100%; left:50%; }
+.flow span { background:#dceeff; color:#0857b8; }
+.columns div { border:0; background:#e9f5ff; padding:1.6cqw; }
+.columns div:nth-child(2) { background:#e1f6fa; }
+.columns div:nth-child(3) { background:#e2f7f4; }
+.columns h3 { color:#0753ad; font-size:2.85cqw; }
+.closing { background:#0765e9; }
+.closing .kicker,.closing .foot { color:#d2f7ff; }
+.closing .foot,.qr { border-color:#a6eaff; }
+@page { size:A4 portrait; margin:0; }
+.subhead { display:flex; align-items:center; gap:1.5cqw; color:#075bc8; background:#e5f4ff; font-size:3cqw; }
+.subhead b { flex:none; color:white; background:#076af0; padding:.45cqw 2.4cqw .45cqw 1.4cqw; clip-path:polygon(0 0,100% 0,86% 100%,0 100%); }
+.section-note { padding:1.2cqw 0 0; color:var(--muted); }
+.figure.process { display:flex; flex-direction:column; justify-content:center; min-height:42cqw; gap:4cqw; }
+.figure.process .flow span { background:#fff; border:1px solid #a8cff7; }
+#p03 .leaf { gap:1.55cqw; padding-block:4.7cqw; }
+#p03 .brief-title h2 { font-size:6.1cqw; color:#006eff; }
+#p03 .brief-title p { margin-top:1.1cqw; color:#0858b6; font-weight:700; }
+#p03 .subhead { background:#dcf0ff; font-size:3.25cqw; }
+#p03 .subhead b { background:#006eff; }
+#p03 p { font-size:2.27cqw; line-height:1.43; }
+#p03 .policy-band { display:grid; grid-template-columns:22% 1fr; border:1px solid #b9ddff; margin-top:1.5cqw; background:#f1f8ff; }
+#p03 .policy-band > strong { display:grid; place-content:center; text-align:center; background:#0873f7; color:white; font-size:3.6cqw; line-height:1.35; }
+#p03 .policy-band > div { padding:1.6cqw 2.25cqw; }
+#p03 h4 { margin:0 0 .45cqw; font-size:2.85cqw; color:#0065df; }
+#p03 .system-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1cqw; margin-top:1.4cqw; }
+#p03 .system-strip div { display:grid; text-align:center; padding:.9cqw .3cqw; border:1px solid #b8dcff; background:#f2f8ff; }
+#p03 .system-strip strong { color:#0065df; font-size:2.8cqw; }
+#p03 .system-strip span { font-size:2.12cqw; }
+#p03 .pain-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.15cqw; margin-top:1.5cqw; }
+#p03 .pain-grid > div { padding:1.05cqw 1.7cqw; border:1px solid #b8dcff; }
+#p03 .pain-grid h3 { color:#0065df; font-size:2.85cqw; margin-bottom:.55cqw; }
+#p03 .pain-grid b { background:#006eff; color:white; margin-right:1cqw; padding:0 .75cqw; }
+#p03 .brief-outcome { display:flex; align-items:center; gap:1.8cqw; border-left:3px solid #00a9ce; background:#e8f7fc; padding:1.25cqw 1.6cqw; }
+#p03 .brief-outcome strong { flex:none; color:#005ba7; }
+.columns h3 b { color:white; background:#076af0; padding:0 .6cqw; margin-right:.7cqw; }
+@media print {
+  body,main { padding:0; margin:0; background:white; max-width:none; }
+  .toolbar { display:none; }
+  .spread,.spread.solo { display:contents; }
+  .page { width:210mm; height:297mm; aspect-ratio:auto; break-after:page; box-shadow:none; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+  .spread:last-child .page:last-child { break-after:auto; }
+}
+</style>
+<body>
+<header class="toolbar">
+  <strong>鲸云智能 · 产品手册样册</strong>
+  <div>
+    <label for="jump">页码</label><select id="jump"></select>
+    <button id="print" type="button">打印 / PDF</button>
+  </div>
+</header>
+<main id="book" aria-label="24 页产品手册"></main>
+<script>
+const agents = [
+  ["销售与订单承接","报价智能体","询价到签发","资料核验→制造方案→成本核算→报价签发","检查询价资料，串接技术评审、制造方案与成本核算。","销售核对底价与利润，按规则定价或提交例外审批。","形成正式报价单，保留进度、审批与签发记录。"],
+  ["销售与订单承接","智能报价智能体","复杂产品成本核算","产品资料→公式匹配→分项计价→模板输出","整理图纸、BOM 和基础数据，按选定公式分项计算。","报价人员核对材料单价、工艺费率和公式口径。","输出可追查计算过程的成本明细和报价文件。"],
+  ["销售与订单承接","叉车销售选配智能体","特殊需求到配置建议","车型与需求→规则匹配→配置校验→方案回传","根据已选车型和特殊需求，匹配适用配置及组合规则。","销售核对配置是否满足使用条件和客户要求。","形成供销售确认并衔接内销系统的配置方案。"],
+  ["工艺与生产协同","工艺智能体","新品 BOM 与工艺文件","研发资料→新品物料清单→标准工序→工艺文件","整理图纸、产品特性和技术要求，辅助编制新品 BOM 与工艺文件。","工艺人员核对物料、工序、控制要求和引用版本。","形成可追查编制依据的流程图、PFMEA 或作业文件。"],
+  ["工艺与生产协同","工艺优化智能体","既有产品工艺推荐","既有产品→历史工艺→参数推荐→工艺评估","结合既有产品、历史工艺和当前条件寻找可参考的参数。","工艺人员结合设备、材料和现场条件评估建议。","形成带参考依据的工艺建议，供试制或调整时使用。"],
+  ["工艺与生产协同","排产智能体","计划与物料协同","正式要货与预测→主生产计划→物料需求→采购建议","归集要货与预测，串联主生产计划、BOM 展开及库存承接。","计划与物控人员核对需求来源、缺料和采购建议。","形成可回查来源的计划与物料需求视图。"],
+  ["工艺与生产协同","生产异常智能体","现场异常处置","现场上报→判断派发→现场处置→验证关闭","记录扫码或非扫码异常，按类型组织判断、派发和协同。","责任人处置并回传，验证人现场核查，工段长核定影响。","保留工单、逐件处置结果及关闭依据。"],
+  ["工艺与生产协同","设备维修智能体","维修任务与记录","设备异常→维修任务→现场处理→维修记录","围绕设备对象关联异常信息、任务和维修历史。","维修人员判断故障、记录处置并核对设备恢复情况。","形成可回查的维修记录，为同类异常处理提供参考。"],
+  ["交付与客户服务","包装配箱 AI 智能体","出货装载规划","出货清单→打托计算→装柜规划→明细导出","按货物规格、托盘、柜型和载重约束组织装载计算。","物流人员核对装载条件、尾柜结果与现场可执行性。","查看三维柜内布局，导出打托和装柜明细。"],
+  ["交付与客户服务","售后客诉智能体","客诉处理与验证","客诉登记→整改提交→现场验证→审核关闭","关联客诉、整改动作、责任岗位和处理证据。","责任人提交整改，质量人员验证并审核措施，跟踪客户结论。","留存整改、验证及关闭依据，供同类问题复盘。"],
+  ["财务与经营管理","票据智能体","票据业务处理","票据资料→字段整理→业务核对→处理留痕","围绕票据和相关业务资料组织核对所需的信息。","经办人员按企业规则确认票据内容及异常差异。","将核对结果与处理记录关联，供后续业务追查。"],
+  ["财务与经营管理","财务智能体","报表复核与交付","数据交付→勾稽检查→财务复核→终表归档","汇集报表来源，生成过程版本并标出缺数、映射或勾稽问题。","财务人员处理差异，完成整表复核和终表确认。","形成可导出、可归档并能追查来源的正式报表。"],
+  ["财务与经营管理","绩效考核智能体","指标与考核结果","考核对象→指标口径→结果核对→考核记录","围绕岗位或组织汇集考核所需数据与计算依据。","负责人核对统计范围、指标口径和例外情况。","形成可复核的考核结果与依据，支持后续沟通。"],
+  ["财务与经营管理","经营指标智能体","指标异常与业务追查","指标异常→拆解因子→定位对象→核查证据","沿指标口径拆解变化，关联具体对象、时段与事件。","业务人员核查证据与现场条件，确认分析线索。","形成带排查重点和证据来源的分析结论。"],
+  ["财务与经营管理","战情室 Agent","经营态势与对话分析","经营数据→看板问答→主题分析→报告推送","围绕看板数据开展对话式分析，整理主题报告。","管理人员核对统计口径，判断哪些发现需要跟进。","获得经营看板解读、定期报告和管理线索。"],
+  ["AI 应用建设","企业智能诊断智能体","识别优先建设场景","现状摸排→数据诊断→场景排序→建设建议","梳理业务痛点、系统与数据资产，评估场景落地条件。","业务与 IT 团队核实数据可用性和场景优先级。","形成诊断报告、治理建议与优先建设场景。"]
+];
+const number = n => String(n).padStart(2,"0");
+const subhead = (id,name) => `<h3 class="subhead"><b>${id}</b><span>${name}</span></h3>`;
+const point = (id,name) => `<h3><b>${id}</b>${name}</h3>`;
+const title = (label,name,desc) => `<div class="heading"><div class="kicker">${label}</div><h2>${name}</h2><p class="lede">${desc}</p></div>`;
+const figure = (name,note,mode="") => `<div class="figure ${mode ? "product" : ""}" data-style="${mode}"><strong>${name}</strong><span>${note}</span></div>`;
+const flow = steps => `<div class="flow">${steps.map(s=>`<span>${s}</span>`).join("<i aria-hidden='true'>→</i>")}</div>`;
+const row = (n,name,desc) => `<div class="row"><b>${n}</b><div><h3>${name}</h3><p>${desc}</p></div></div>`;
+const link = (n,name) => `<a href="#p${number(n)}"><span>${name}</span><span>${number(n)}</span></a>`;
+const chapters = [[3,"为什么需要 AI 原生工厂"],[4,"AI 原生工厂"],[6,"羲和企业智能基座"],[8,"岗位智能体与应用方向"]];
+const pages = [
+  ["封面","",`<div class="heading"><div class="kicker">羲和企业智能基座</div><h1>AI 原生工厂</h1><p>产品手册</p></div>`,"cover"],
+  ["目录与应用索引","导览",title("CONTENTS","目录","")+`<div class="index contents">${chapters.map(([n,name],i)=>`<a href="#p${number(n)}"><b>${number(i+1)}</b><span>${name}<br>P${number(n)}</span></a>`).join("")}</div><h3>智能体索引</h3><div class="index app-index">${agents.map((a,i)=>link(i+8,a[1])).join("")}</div>`],
+  ["为什么需要 AI 原生工厂","01 / 建设背景",`<header class="brief-title"><h2>为什么需要 AI 原生工厂</h2><p>系统记录各环节的事实，企业还要把这些事实转化为跨岗位的判断与行动。</p></header>
+  <section>${subhead("1.1","政策引领")}<div class="policy-band"><strong>人工智能<br>＋制造</strong><div><h4>推动人工智能融入制造业务</h4><p>《“人工智能+制造”专项行动实施意见》提出推动人工智能与制造业深度融合。对工厂而言，应用可以从报价、排产、质量等有明确岗位、数据来源和交付结果的任务切入。</p></div></div></section>
+  <section>${subhead("1.2","行业现状")}<p class="section-note">研发、经营、计划与现场执行已有系统承载。订单、物料或工序发生变化时，相关信息仍需按同一业务事项对齐。</p><div class="system-strip">${[["PLM","图纸与版本"],["ERP","订单与库存"],["APS","产能与排程"],["MES","工单与在制"]].map(([name,label])=>`<div><strong>${name}</strong><span>${label}</span></div>`).join("")}</div></section>
+  <section>${subhead("1.3","企业痛点")}<div class="pain-grid">${[
+    ["交期变更","销售收到提前交付要求，计划员还要核对库存、在制、到料和设备负荷，才能判断是否能接。"],
+    ["非标核价","图纸和物料清单齐备后，仍需结合加工路线、工时和费率，核查每项成本的计算依据。"],
+    ["异常交接","车间发现批次不良，生产、质量和工艺要接续判断、处置和验证。缺少统一状态时只能反复催问。"],
+    ["经验复用","相似产品再次询价时，历史工艺、核价规则和审批依据散在表格与记录里，需要重新取证。"]
+  ].map(([name,desc],i)=>`<div>${point(String(i+1),name)}<p>${desc}</p></div>`).join("")}</div></section>
+  <p class="brief-outcome"><strong>建设重点</strong><span>让信息、专业规则和岗位任务围绕同一业务事项接续。</span></p>`],
+  ["AI 原生工厂定义","02 / AI 原生工厂",title("02 / AI 原生工厂","工厂怎样工作","AI 原生工厂把智能体嵌入制造业务流程。人员、智能体和现有系统围绕同一业务事项分工，配合完成判断、协作和结果确认。")+subhead("2.1","定义与运行方式")+figure("客户临时调整交期","销售核对交付承诺，计划核对库存与产能，生产反馈在制和异常。")+flow(["识别变化","协同处理","人员确认","结果留痕"])+subhead("2.2","业务价值")+`<div class="columns"><div><h3>判断有依据</h3><p>查得到来源，核得清口径。</p></div><div><h3>协同能接续</h3><p>异常有人接，处理有记录。</p></div><div><h3>经验可复用</h3><p>经验证的规则用于相似任务。</p></div></div>`],
+  ["AI 原生工厂全景","02 / AI 原生工厂",title("02 / AI 原生工厂","业务全景","从企业现有系统出发，经羲和关联业务信息，再由岗位智能体协助处理具体任务。")+subhead("2.3","AI 原生工厂全景")+`<div class="stack"><div class="layer"><h3>岗位与工作入口</h3><p>岗位工作台 · 管理入口 · 现场终端</p></div><div class="layer"><h3>业务场景与岗位智能体</h3><p>销售 · 工艺 · 生产 · 交付 · 经营</p></div><div class="layer focus"><h3>羲和企业智能基座</h3><p>共同业务对象 · 数据 · 知识规则 · 工作流</p></div><div class="layer"><h3>既有系统与业务数据</h3><p>ERP · MES · PLM · 现场记录与文档</p></div></div><p class="pull">按岗位授权，关键动作经人员确认，操作和结果可追查。</p>`],
+  ["羲和产品机制","03 / 羲和企业智能基座",title("03 / 羲和企业智能基座","共同业务基础","羲和把分散在系统里的数据、资料和规则组织成岗位智能体可使用的业务基础。")+subhead("3.1","基座机制")+`<div class="stack"><div class="layer"><h3>工作流</h3><p>组织任务步骤、责任分工、人工确认与结果记录。</p></div><div class="layer"><h3>知识与规则</h3><p>把工艺规范、核价公式和指标口径关联到适用对象与任务。</p></div><div class="layer focus"><h3>业务本体</h3><p>用业务本体描述产品、项目、工序和文件及其引用关系。</p></div><div class="layer"><h3>数据治理</h3><p>核对数据来源、标识和版本，将记录映射到业务对象。</p></div></div>`],
+  ["羲和支撑岗位工作","03 / 羲和企业智能基座",title("03 / 羲和企业智能基座","让岗位工作接续","围绕同一产品，工艺关注图纸与工序，计划关注物料与资源，质量关注控制要求。")+subhead("3.2","岗位协作与复用")+figure("产品 · 工序 · 文件","产品关联工序，工序引用受控文件。各岗位依职责查看相关记录。")+flow(["关联信息","调用依据","人员确认","记录复用"])+`<p class="pull">人员按职责确认结果。经核对的对象关系与规则可用于相关场景，运行记录供后续回查。</p>`],
+  ...agents.map(([group,name,task,steps,work,review,result],i)=>[name,group,title("04 / "+group,name,task)+subhead("4."+(i+1),"应用能力")+`<div class="figure process"><strong>${task}</strong>${flow(steps.split("→"))}</div>`+`<div class="columns"><div>${point("1","智能体工作")}<p>${work}</p></div><div>${point("2","人员确认")}<p>${review}</p></div><div>${point("3","工作结果")}<p>${result}</p></div></div>`]),
+  ["封底","",`<div class="kicker">鲸云智能</div><h2>产品咨询</h2><p>欢迎与鲸云智能交流您希望优先改善的制造业务，了解适用的岗位智能体与建设方式。</p>`,"closing"]
+];
+const book = document.querySelector("#book");
+for (let i=0;i<pages.length;) {
+  const solo = i===0 || i===pages.length-1;
+  const spread = document.createElement("div");
+  spread.className = solo ? "spread solo" : "spread";
+  for (let j=0;j<(solo ? 1 : 2);j++,i++) {
+    const [name,section,body,kind=""] = pages[i];
+    const n = number(i+1);
+    spread.insertAdjacentHTML("beforeend",`<article id="p${n}" class="page ${kind}" aria-label="第 ${i+1} 页 ${name}"><div class="leaf">${kind==="closing" ? "" : `<div class="running"><strong>鲸云智能</strong><span>${section || "产品手册 · 样册"}</span></div>`}${body}<footer class="foot"><span>羲和企业智能基座</span><span>${n} / 24</span></footer></div></article>`);
+    document.querySelector("#jump").add(new Option(`${n} · ${name}`,`p${n}`));
+  }
+  book.append(spread);
+}
+document.querySelector("#jump").addEventListener("change", event => {
+  location.hash=event.target.value;
+});
+function syncJump() {
+  const id=location.hash.slice(1);
+  if (document.getElementById(id)?.classList.contains("page")) document.querySelector("#jump").value=id;
+}
+window.addEventListener("hashchange",syncJump);
+syncJump();
+document.querySelector("#print").addEventListener("click",()=>window.print());
+</script>
+</body>
+</html>
